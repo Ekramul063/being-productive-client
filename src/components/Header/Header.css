@@ -1,0 +1,28 @@
+.slider-img{
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    position: relative;
+}
+.slider-text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #4e2e2ed6;
+    color:#FFF;
+    padding: 30px 25px;
+    border-radius: 10px;
+    max-width: 500px;
+}
+.slider-text h3{
+    letter-spacing: 0.4rem;
+    line-height: 3rem;
+}
+.slider-text h4{
+    color:#ffd3d3f2;
+    letter-spacing: 0.2rem;
+}
+.slider-text p{
+    color:#ffffffe0;
+}

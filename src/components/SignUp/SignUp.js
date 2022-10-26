@@ -16,8 +16,9 @@ const SignUp = () => {
         signINWithGoole(provider)
             .then(result => {
                 const user = result.user;
+                console.log(user)
             })
-            .catch(error => console.error(error))
+            .catch(error => console.error(error.message))
     }
     const handleSignUp = event => {
         event.preventDefault();
@@ -28,6 +29,7 @@ const SignUp = () => {
         signUp(email, password, name)
             .then(result => {
                 const user = result.user;
+                form.reset();
                 console.log(user)
             })
             .catch(error => console.error(error))

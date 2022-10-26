@@ -3,22 +3,34 @@ import './SignUp.css'
 import { FaGithubSquare } from 'react-icons/fa';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+
+const provider = new GoogleAuthProvider();
 
 const SignUp = () => {
-    const{signUp}=useContext(AuthContext)
 
+    const { signUp, signINWithGoole } = useContext(AuthContext);
+
+    const googleSignIn = event => {
+        event.preventDefault();
+        signINWithGoole(provider)
+            .then(result => {
+                const user = result.user;
+            })
+            .catch(error => console.error(error))
+    }
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        signUp(email,password,name)
-        .then(result=>{
-            const user =result.user;
-            console.log(user)
-        })
-        .catch(error => console.error(error))
+        signUp(email, password, name)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => console.error(error))
     }
 
     return (
@@ -61,7 +73,7 @@ const SignUp = () => {
                     <p className='text-center font-bold text-base my-3'>Sign In With</p>
                     <div className="flex justify-center gap-3 items-center">
                         <FaGithubSquare className='text-5xl  cursor-pointer text-purple'></FaGithubSquare>
-                        <FaGoogle className='text-4xl cursor-pointer'></FaGoogle>
+                        <FaGoogle onClick={googleSignIn} className='text-4xl cursor-pointer'></FaGoogle>
                     </div>
                 </div>
 

@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../asets/images/logo.png'
 
 const Navbar = () => {
     return (
         <div>
+
             <div className="navbar bg-purple-400 py-4">
                 <div className="navbar-start">
                     {/* mobile menu start */}
@@ -26,22 +29,22 @@ const Navbar = () => {
                         </ul>
                     </div>
                     {/* mobile-menu end*/}
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+
+                    <Link to={'/'}>
+                        <div className='btn btn-ghost normal-case'> 
+                            <img style={{ height: "30px" }} src={logo} alt="" /> 
+                            <span className='text-lg font-bold'>Being Productive</span>
+                        </div>
+                    </Link>
+
+
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><a>Item 1</a></li>
-                        <li tabIndex={0}>
-                            <a>
-                                Courses
-                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
-                            </a>
-                            <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </li>
+                        <li><Link to={'/'}>Home</Link></li>
+                        <li><Link to={'/courses'}>Courses</Link></li>
                         <li><a>FAQ</a></li>
+                        <li><Link to={'blogs'}>Blogs</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">

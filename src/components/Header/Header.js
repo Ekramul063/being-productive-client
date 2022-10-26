@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
 import banner from '../../asets/images/banner.jpg';
 import banner2 from '../../asets/images/banner2.jpg';
 import banner3 from '../../asets/images/banner3.jpg';
@@ -9,7 +8,7 @@ import './Header.css';
 const Header = () => {
     return (
         <div>
-            <Navbar></Navbar>
+            
 
             <div className='header-slider'>
 
@@ -46,9 +45,9 @@ const Header = () => {
 
             </div>
             <div className='slider-text '>
-                <h3 className='font-bold text-3xl leading-9 widest'>THE BEST SOLUTION</h3>
-                <h4 className='font-semi-bold text-xl leading-8'>TO CREATE AND SELL ONLINE COURSE</h4>
-                <p className='text-semi-bold'>Make your self productive and contribute to develope own the nation</p>
+                <h3 className='font-bold lg:text-3xl md:text-2xl sm:text-normal leading-10 '>THE BEST SOLUTION</h3>
+                <h4 className='font-semi-bold lg:text-xl text-normal mdleading-8'>TO CREATE AND SELL ONLINE COURSE</h4>
+                <p className='text-semi-bold'>Make different and reward your self</p>
 
             </div>
 

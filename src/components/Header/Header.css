@@ -17,11 +17,10 @@
 }
 .slider-text h3{
     letter-spacing: 0.4rem;
-    line-height: 3rem;
 }
 .slider-text h4{
     color:#ffd3d3f2;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.2srem;
 }
 .slider-text p{
     color:#ffffffe0;

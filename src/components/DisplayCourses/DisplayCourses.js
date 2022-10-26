@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './DisplayCourses.css';
 
 const DisplayCourses = ({ course }) => {
-    const { title, price, classes, duration, thumbnail, details } = course;
+    const { title, price, classes, duration, thumbnail, id } = course;
     return (
         <div>
 
@@ -16,7 +16,7 @@ const DisplayCourses = ({ course }) => {
                     </figure>
                 </Link>
                 <div className="card-body">
-                    <Link to={'/home'}>
+                    <Link to={`/course/${id}`}>
                         <h2 className="card-title hover:text-sky-700 hover:underline	 ">
                             {title}
                             <div className="badge badge-secondary">NEW</div>

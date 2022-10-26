@@ -26,7 +26,7 @@ import Courses from '../../components/Courses/Courses';
                 },
                 {
                     path:'/course/:id',
-                    loader: async (params) => {
+                    loader: async ({params}) => {
                         return fetch(`http://localhost:5000/course/${params.id}`);
                       },
                     element:<CourseDetails></CourseDetails>

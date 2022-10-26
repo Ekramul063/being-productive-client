@@ -5,6 +5,7 @@ import Home from '../../components/Home/Home'
 import CourseDetails from '../../components/CourseDetails/CourseDetails';
 import Courses from '../../components/Courses/Courses';
 import SignUp from '../../components/SignUp/SignUp';
+import SignIn from '../../components/SignIn/SignIn';
 
    export const route = createBrowserRouter([
         {
@@ -36,6 +37,11 @@ import SignUp from '../../components/SignUp/SignUp';
                     path:'/signup',
                    
                     element:<SignUp></SignUp>
+                },
+                {
+                    path:'/signin',
+                   
+                    element:<SignIn></SignIn>
                 },
                 
             ]

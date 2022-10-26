@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './SignUp.css'
 import { FaGithubSquare } from 'react-icons/fa';
 import { FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const SignUp = () => {
+    const{signUp}=useContext(AuthContext)
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -11,7 +13,12 @@ const SignUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name,email,password);
+        signUp(email,password,name)
+        .then(result=>{
+            const user =result.user;
+            console.log(user)
+        })
+        .catch(error => console.error(error))
     }
 
     return (
@@ -37,7 +44,7 @@ const SignUp = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="text" name='password' placeholder="password" className="input input-bordered" />
+                        <input type="password" name='password' placeholder="password" className="input input-bordered" />
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>

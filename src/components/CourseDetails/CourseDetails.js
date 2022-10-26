@@ -8,7 +8,7 @@ const CourseDetails = () => {
 
     return (
         <div>
-            <div className="course-detail-row">
+            <div className="course-detail-row mb-10">
                 <div className="sidebar">
 
                 </div>

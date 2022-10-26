@@ -4,6 +4,7 @@ import Main from '../../layout/Main';
 import Home from '../../components/Home/Home'
 import CourseDetails from '../../components/CourseDetails/CourseDetails';
 import Courses from '../../components/Courses/Courses';
+import SignUp from '../../components/SignUp/SignUp';
 
    export const route = createBrowserRouter([
         {
@@ -30,6 +31,11 @@ import Courses from '../../components/Courses/Courses';
                         return fetch(`http://localhost:5000/course/${params.id}`);
                       },
                     element:<CourseDetails></CourseDetails>
+                },
+                {
+                    path:'/signup',
+                   
+                    element:<SignUp></SignUp>
                 },
                 
             ]

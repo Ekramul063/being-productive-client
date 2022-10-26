@@ -4,11 +4,11 @@ import logo from '../../asets/images/logo.png'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Navbar = () => {
-    const {user,logOut} = useContext(AuthContext);
-   const handleSignOut = event =>{
-    event.preventDefault();
-    logOut()
-   }
+    const { user, logOut } = useContext(AuthContext);
+    const handleSignOut = event => {
+        event.preventDefault();
+        logOut()
+    }
     return (
         <div>
 
@@ -37,8 +37,8 @@ const Navbar = () => {
                     {/* mobile-menu end*/}
 
                     <Link to={'/'}>
-                        <div className='btn btn-ghost normal-case'> 
-                            <img style={{ height: "30px" }} src={logo} alt="" /> 
+                        <div className='btn btn-ghost normal-case'>
+                            <img style={{ height: "30px" }} src={logo} alt="" />
                             <span className='text-lg font-bold'>Being Productive</span>
                         </div>
                     </Link>
@@ -56,15 +56,25 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user?.uid?
-                        <Link onClick={handleSignOut} to={'/signin'} className="btn mr-3">Sign Out</Link>
-                        :
-                        <Link to={'/signin'} className="btn mr-3">Sign In</Link>
+                        user?.photoURL ?
+                            <img className='mr-3 cursor-pointer' style={{ height: '45px', borderRadius: '100%' }} src={user.photoURL} alt="" />
+                            :
+                            ""
                     }
-                
-                    <Link to={'/signup'} className="btn mr-3">Sign Up</Link>
+                    {
+                        user?.uid ?
+                            <Link onClick={handleSignOut} to={'/signin'} className="btn mr-3">Sign Out</Link>
+                            :
+                            <>
+                                <Link to={'/signin'} className="btn mr-3">Sign In</Link>
+                                <Link to={'/signup'} className="btn mr-3">Sign Up</Link>
+                            </>
+
+                    }
+
+
                     <a className="btn">Light</a>
-                   
+
                 </div>
             </div>
         </div>

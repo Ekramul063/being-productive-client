@@ -6,6 +6,7 @@ import CourseDetails from '../../components/CourseDetails/CourseDetails';
 import Courses from '../../components/Courses/Courses';
 import SignUp from '../../components/SignUp/SignUp';
 import SignIn from '../../components/SignIn/SignIn';
+import PageNotFound from '../../components/pageNotFound/PageNotFound';
 
    export const route = createBrowserRouter([
         {
@@ -46,6 +47,11 @@ import SignIn from '../../components/SignIn/SignIn';
                 
             ]
         },
+        {
+
+            path:'*',
+            element:<PageNotFound></PageNotFound>
+        }
       
         
     ]);

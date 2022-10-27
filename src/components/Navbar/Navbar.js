@@ -7,7 +7,6 @@ import './Navbar.css';
 
 const Navbar = () => {
     const [dark, setDark] = useState(false);
-    console.log(dark);
     const { user, logOut } = useContext(AuthContext);
     const handleSignOut = event => {
         event.preventDefault();
@@ -28,6 +27,21 @@ const Navbar = () => {
                             <li><Link to={'/courses'}>Courses</Link></li>
                             <li><a>FAQ</a></li>
                             <li><Link to={'blogs'}>Blogs</Link></li>
+                            <li>
+                               
+                                    {
+                                        user?.uid ?
+                                            <Link onClick={handleSignOut} to={'/signin'} className="btn mr-3">Sign Out</Link>
+                                            :
+                                            <>
+                                                <Link to={'/signin'} className="btn mr-3">Sign In</Link>
+                                                <Link to={'/signup'} className="btn mr-3">Sign Up</Link>
+                                            </>
+
+                                    }
+
+                               
+                            </li>
 
                         </ul>
                     </div>
@@ -48,21 +62,24 @@ const Navbar = () => {
                         <li><Link to={'/courses'}>Courses</Link></li>
                         <li><a>FAQ</a></li>
                         <li><Link to={'blogs'}>Blogs</Link></li>
-                        {/* <li><Link to={'blogs'}>{user.email}</Link></li> */}
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    <div className='d-none'>
+                        {
+                            user?.uid ?
+                                <Link onClick={handleSignOut} to={'/signin'} className="btn mr-3">Sign Out</Link>
+                                :
+                                <>
+                                    <Link to={'/signin'} className="btn mr-3">Sign In</Link>
+                                    <Link to={'/signup'} className="btn mr-3">Sign Up</Link>
+                                </>
 
-                    {
-                        user?.uid ?
-                            <Link onClick={handleSignOut} to={'/signin'} className="btn mr-3">Sign Out</Link>
-                            :
-                            <>
-                                <Link to={'/signin'} className="btn mr-3">Sign In</Link>
-                                <Link to={'/signup'} className="btn mr-3">Sign Up</Link>
-                            </>
+                        }
 
-                    }
+                    </div>
+
+
                     {
                         dark ?
                             <a className="btn" onClick={() => setDark(false)}>Dark</a>

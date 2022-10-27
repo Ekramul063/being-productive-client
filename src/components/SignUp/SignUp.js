@@ -39,7 +39,7 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
-        signUp(email, password, name)
+        signUp(email, password,)
             .then(result => {
                 const user = result.user;
                 form.reset();
@@ -52,8 +52,10 @@ const SignUp = () => {
 
    const updateprofile =(name,photo)=>{
     updateProfile(auth.currentUser,
-        {displaName:name,photoURL:photo,})
-        .then(() => {})
+        {displayName:name,
+        photoURL:photo,})
+        .then(() => {
+        })
         .catch(error => console.error(error))
    }
 

@@ -49,20 +49,18 @@ import Blogs from '../../components/Blogs/Blogs';
                 //       },
                 //     element:<CourseList></CourseList>
                 // },
-                {
-                    path:'/signup',
-                   
-                    element:<SignUp></SignUp>
-                },
-                {
-                    path:'/signin', 
-                    element:<SignIn></SignIn>
-                },
-
-                
+               
             ]
         },
-       
+        {
+            path:'/signup',
+           
+            element:<SignUp></SignUp>
+        },
+        {
+            path:'/signin', 
+            element:<SignIn></SignIn>
+        },
         
         {
             path:'*',

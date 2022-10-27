@@ -7,11 +7,11 @@ import Courses from '../../components/Courses/Courses';
 import SignUp from '../../components/SignUp/SignUp';
 import SignIn from '../../components/SignIn/SignIn';
 import PageNotFound from '../../components/pageNotFound/PageNotFound';
-import CourseList from '../../components/CourseList/CourseList';
 import PrivateRoute from '../../context/PrivateRoute/PrivateRoute';
 import Blogs from '../../components/Blogs/Blogs';
 import BuyNow from '../../components/BuyNow/BuyNow';
 import Faq from '../../components/Faq/Faq';
+
 
    export const route = createBrowserRouter([
         {
@@ -57,6 +57,7 @@ import Faq from '../../components/Faq/Faq';
                     path:'/faq',
                     element:<Faq></Faq>
                 },
+               
                
             ]
         },

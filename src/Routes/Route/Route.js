@@ -10,6 +10,8 @@ import PageNotFound from '../../components/pageNotFound/PageNotFound';
 import CourseList from '../../components/CourseList/CourseList';
 import PrivateRoute from '../../context/PrivateRoute/PrivateRoute';
 import Blogs from '../../components/Blogs/Blogs';
+import BuyNow from '../../components/BuyNow/BuyNow';
+import Faq from '../../components/Faq/Faq';
 
    export const route = createBrowserRouter([
         {
@@ -36,19 +38,25 @@ import Blogs from '../../components/Blogs/Blogs';
                     loader: async ({params}) => {
                         return fetch(`http://localhost:5000/course/${params.id}`);
                       },
-                    element:<PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>
+                    element:<CourseDetails></CourseDetails>
                 },
+
+                {
+                    path:'/Buynow/:id',
+                    loader: async ({params}) => {
+                        return fetch(`http://localhost:5000/course/${params.id}`);
+                      },
+                    element:<PrivateRoute><BuyNow></BuyNow></PrivateRoute>
+                },
+                
                 {
                     path:'/blogs',
                     element:<Blogs></Blogs>
                 },
-                // {
-                //     path:'/list',
-                //     loader: async () => {
-                //         return fetch(`http://localhost:5000/courses`);
-                //       },
-                //     element:<CourseList></CourseList>
-                // },
+                {
+                    path:'/faq',
+                    element:<Faq></Faq>
+                },
                
             ]
         },

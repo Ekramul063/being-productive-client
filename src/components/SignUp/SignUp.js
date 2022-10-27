@@ -61,8 +61,10 @@ const SignUp = () => {
 
     return (
         <div className='from-container'>
+            
 
             <div className="card flex-shrink-0 w-full  shadow-2xl bg-base-100">
+            <h3 className='text-4xl font-bold text-center mt-10 text-blue-700'>SIGN UP</h3>
 
                 <form onSubmit={handleSignUp} className="card-body">
 

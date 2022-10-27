@@ -1,13 +1,19 @@
-import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
-import './CourseDetails.css';
 
-const CourseDetails = () => {
+import React from 'react';
+import { FaCcMastercard, FaCcVisa } from 'react-icons/fa';
+import { useLoaderData } from 'react-router-dom';
+import './BuyNow.css';
+
+const BuyNow = () => {
     const course = useLoaderData();
 
     return (
         <div>
             <div className="course-detail-row mb-10">
+                <div className="sidebar">
+                </div>
+
+
                 <div className="content">
 
                     <div className="details-card flex flex-wrap">
@@ -17,8 +23,12 @@ const CourseDetails = () => {
                             <div className="font-bold mt-2">Total Class: {course.classes}</div>
                             <div className="font-bold mt-2">Course Fee: {course.price} Taka</div>
                             <div className="font-bold mt-2">Class duration: {course.duration} hours</div>
-                            
-                            <Link to={`/buynow/${course.id}`}><button className="btn btn-primary mt-2">BUY NOW</button></Link>
+                            <div className='flex gap-5 mt-5'>
+                                <FaCcMastercard className='text-6xl cursor-pointer'></FaCcMastercard>
+                                <FaCcVisa className='text-6xl cursor-pointer'></FaCcVisa>
+                            </div>
+                           
+
                         </div>
                         <div className='course-content'>
                             <h3 className='text-3xl font-semi-bold  mb-5'>OVERVIEW</h3>
@@ -37,4 +47,4 @@ const CourseDetails = () => {
     );
 };
 
-export default CourseDetails;
+export default BuyNow;

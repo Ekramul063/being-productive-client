@@ -26,7 +26,10 @@ const DisplayCourses = ({ course }) => {
                         <div className="badge badge-outline w-72  ">Course Fee: {price} Taka</div>
                         <div className="badge badge-outline w-72  ">Class duration: {duration} hours</div>
                         <div className="badge badge-outline w-72  ">Total Class: {classes}</div>
+                        <Link to={`/buynow/${id}`}>
                         <div className="badge badge-outline w-72  font-bold py-5 mt-3 bg-blue-700 text-white ">Enroll</div>
+                        </Link>
+                        
                     </div>
                 </div>
             </div>

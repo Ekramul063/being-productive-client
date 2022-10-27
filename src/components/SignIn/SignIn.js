@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGithubSquare } from 'react-icons/fa';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
@@ -9,6 +9,7 @@ const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider()
 
 const SignIn = () => {
+    const[error,setError] = useState('');
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
     const navigate = useNavigate();
@@ -28,9 +29,8 @@ const SignIn = () => {
         signINWithGit(githubProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user)
             })
-            .catch(error => console.error(error.message))
+            .catch(error => setError(error.message));
     }
 
     const handleSignIn = event => {
@@ -45,12 +45,17 @@ const SignIn = () => {
              form.reset();
              navigate(from ,{replace:true})
         })
-        .catch(error => console.error(error))
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setError(errorMessage);
+          });
     }
     return (
         <div className='from-container'>
 
             <div className="card flex-shrink-0 w-full  shadow-2xl bg-base-100">
+            <h3 className='text-4xl font-bold text-center mt-10 text-blue-700'>SIGN IN</h3>
 
                 <form onSubmit={handleSignIn} className="card-body">
                     <div className="form-control">
@@ -68,6 +73,8 @@ const SignIn = () => {
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
                     </div>
+                    
+                    <p className='text-red-600'>{error} </p>
                     <div className="form-control mt-6">
                         <button type="submit" className="btn btn-primary" >Sign In</button>
                     </div>

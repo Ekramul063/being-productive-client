@@ -5,3 +5,8 @@
    margin-top: 50px !important;
    margin-bottom: 50px !important;
 }
+@media only screen and (max-width: 600px) {
+    .from-container{
+        width: 100%;
+    }
+  }

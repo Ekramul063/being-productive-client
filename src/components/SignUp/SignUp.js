@@ -3,10 +3,12 @@ import './SignUp.css'
 import { FaGithubSquare } from 'react-icons/fa';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, GithubAuthProvider, GoogleAuthProvider,updateProfile } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 
 const googleProvider = new GoogleAuthProvider();
-const githubProvider = new GithubAuthProvider()
+const githubProvider = new GithubAuthProvider();
+const auth = getAuth();
 
 const SignUp = () => {
 
@@ -36,14 +38,24 @@ const SignUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const photo = form.photo.value;
         signUp(email, password, name)
             .then(result => {
                 const user = result.user;
                 form.reset();
-                console.log(user)
+                console.log(user);
+                updateprofile(name,photo);
+
             })
             .catch(error => console.error(error))
     }
+
+   const updateprofile =(name,photo)=>{
+    updateProfile(auth.currentUser,
+        {displaName:name,photoURL:photo,})
+        .then(() => {})
+        .catch(error => console.error(error))
+   }
 
     return (
         <div className='from-container'>
@@ -66,6 +78,12 @@ const SignUp = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
+                            <span className="label-text">Photo URL</span>
+                        </label>
+                        <input type="text" name='photo' placeholder="Photo Url" className="input input-bordered" />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
                             <span className="label-text">Password</span>
                         </label>
                         <input type="password" name='password' placeholder="password" className="input input-bordered" />
@@ -78,7 +96,7 @@ const SignUp = () => {
                     </div>
 
                 </form>
-
+                <p className='text-center'>If you have account? Please <Link to={'/signin'} className="text-blue-500 underline">Sign In</Link>  </p>
                 <p className='text-center font-bold text-base '>OR</p>
                 <hr />
                 <div className=''>

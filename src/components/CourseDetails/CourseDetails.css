@@ -2,13 +2,9 @@
     display: flex;
     justify-content: space-between;
     margin-top: 80px;
+    flex-wrap: wrap;
 }
-.sidebar{
-    width: 30%;
-}
-.content{
-    width: 68%;
-}
+
 .course-img{
     width: 40%;
     padding:0 10px;
@@ -22,3 +18,19 @@
     width: 60%;
     padding: 0 15px;
 }
+
+@media only screen and (max-width: 600px) {
+    .course-content{
+        width: 100%;
+        padding: 0 15px;
+        margin:0 auto;
+        display: block;
+    }
+    .course-img{
+        width: 100%;
+        padding: 0 15px;
+        padding-bottom: 20px;
+        margin:0 auto;
+        display: block;
+    }
+  }

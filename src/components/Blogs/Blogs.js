@@ -1,7 +1,6 @@
 import React from 'react';
 
-
-const HomeLayout = () => {
+const Blogs = () => {
     return (
         <div>
             
@@ -9,4 +8,4 @@ const HomeLayout = () => {
     );
 };
 
-export default HomeLayout;
+export default Blogs;

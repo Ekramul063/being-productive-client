@@ -21,14 +21,14 @@ import Faq from '../../components/Faq/Faq';
                 {
                     path:'/',
                     loader: async () => {
-                        return fetch(`http://localhost:5000/courses`);
+                        return fetch(`https://being-productive-server.vercel.app/courses`);
                       },
                     element:<Home></Home>
                 },
                 {
                     path:'/courses',
                     loader: async (params) => {
-                        return fetch(`http://localhost:5000/courses`);
+                        return fetch(`https://being-productive-server.vercel.app/courses`);
                       },
                     element:<Courses></Courses>
                 },
@@ -36,7 +36,7 @@ import Faq from '../../components/Faq/Faq';
                 {
                     path:'/course/:id',
                     loader: async ({params}) => {
-                        return fetch(`http://localhost:5000/course/${params.id}`);
+                        return fetch(`https://being-productive-server.vercel.app/course/${params.id}`);
                       },
                     element:<CourseDetails></CourseDetails>
                 },
@@ -44,7 +44,7 @@ import Faq from '../../components/Faq/Faq';
                 {
                     path:'/Buynow/:id',
                     loader: async ({params}) => {
-                        return fetch(`http://localhost:5000/course/${params.id}`);
+                        return fetch(`https://being-productive-server.vercel.app/course/${params.id}`);
                       },
                     element:<PrivateRoute><BuyNow></BuyNow></PrivateRoute>
                 },

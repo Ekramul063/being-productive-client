@@ -4,13 +4,17 @@ import { FaGithubSquare } from 'react-icons/fa';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { getAuth, GithubAuthProvider, GoogleAuthProvider,updateProfile } from 'firebase/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 const auth = getAuth();
 
 const SignUp = () => {
+
+    const location =useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate();
 
     const { signUp, signINWithGoole,signINWithGit } = useContext(AuthContext);
 
@@ -19,7 +23,7 @@ const SignUp = () => {
         signINWithGoole(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                navigate(from ,{replace:true})
             })
             .catch(error => console.error(error.message))
     }
@@ -28,7 +32,7 @@ const SignUp = () => {
         signINWithGit(githubProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                navigate(from ,{replace:true})
             })
             .catch(error => console.error(error.message))
     }
@@ -43,8 +47,9 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 form.reset();
-                console.log(user);
+                navigate(from ,{replace:true})
                 updateprofile(name,photo);
+
 
             })
             .catch(error => console.error(error))

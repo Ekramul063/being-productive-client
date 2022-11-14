@@ -20,7 +20,7 @@ const SignIn = () => {
         signINWithGoole(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                navigate(from ,{replace:true});
             })
             .catch(error => console.error(error.message))
     }
@@ -29,6 +29,7 @@ const SignIn = () => {
         signINWithGit(githubProvider)
             .then(result => {
                 const user = result.user;
+                navigate(from ,{replace:true})
             })
             .catch(error => setError(error.message));
     }
@@ -42,8 +43,9 @@ const SignIn = () => {
         .then(result=>{
             const user =result.user;
             console.log(user)
+            navigate(from ,{replace:true})
              form.reset();
-             navigate(from ,{replace:true})
+             
         })
         .catch((error) => {
             const errorCode = error.code;
